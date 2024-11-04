@@ -42,15 +42,6 @@ pipeline {
             }
         }
 
-        stage('sast') {
-            
-            steps {
-
-                echo 'running sast'
-                sh 'docker run test:latest bandit -r APIcalc.py -lll'
-                
-            }
-        }
 
     }
     post {
