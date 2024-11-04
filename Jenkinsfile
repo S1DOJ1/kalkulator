@@ -46,7 +46,7 @@ pipeline {
 	        steps {
 		
 		        sh 'sleep 20'
-		        sh 'docker run --rm apicalc:latest bandit -r . -lll'
+		        sh 'docker run --rm test:latest bandit -r . -lll'
 	
 	        }
 	    }
