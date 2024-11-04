@@ -10,8 +10,6 @@ RUN pip install --upgrade pip
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir flask
-
 RUN pip install --no-cache-dir bandit
 
 EXPOSE 8000
