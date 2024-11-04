@@ -35,13 +35,21 @@ pipeline {
             steps {
 
                 echo 'testing'
-                sh 'sleep 60'
+                sh 'sleep 15'
                 sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add'
                 sh 'docker stop $(docker ps -q --filter ancestor=test)' 
                 
             }
         }
-
+        stage('bandit') {
+		
+	        steps {
+		
+		        sh 'sleep 20'
+		        sh 'docker run --rm apicalc:latest bandit -r . -lll'
+	
+	        }
+	    }
 
     }
     post {
