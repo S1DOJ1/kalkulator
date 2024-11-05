@@ -53,7 +53,7 @@ pipeline {
 
 	stage('semgrep') {
 	    steps {
-	    	sh 'docker run --rm test:latest semgrep --config auto .'
+	    	sh 'docker run --rm test:latest semgrep --config=auto .'
 	    }	
 	}
         
