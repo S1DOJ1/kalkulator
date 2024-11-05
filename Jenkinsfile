@@ -35,8 +35,8 @@ pipeline {
             steps {
 
                 echo 'testing'
-                sh 'sleep 15'
-                sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add'
+                sh 'sleep 5'
+                sh 'curl -d "num1=8&num2=12" -X POST http://localhost:8000/add'
                 sh 'docker stop $(docker ps -q --filter ancestor=test)' 
                 
             }
@@ -45,7 +45,7 @@ pipeline {
 		
 	        steps {
 		
-		        sh 'sleep 20'
+		        sh 'sleep 10'
 		        sh 'docker run --rm test:latest bandit -r . -lll'
 	
 	        }
