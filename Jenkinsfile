@@ -51,14 +51,20 @@ pipeline {
 	        }
 	    }
 
-	    
+	stage('semgrep') {
+	    steps {
+	    	sh 'docker run --rm apicalc:latest semgrep --config auto .'
+	    }	
+	}
+        
     }
+
     post {
         success {
-            echo 'success'
+            echo 'Docker image built and pushed successfully!!'
         }
         failure {
-            echo 'failure'
+            echo 'Something went wrong with the build.'
         }
     }
 }
