@@ -21,8 +21,6 @@ RUN pip install --no-cache-dir bandit
 
 RUN pip install --no-cache-dir semgrep
 
-#RUN pip install  --no-cache-dir trivy
-
 EXPOSE 8000
 
 CMD ["python", "APIcalc.py"]
