@@ -24,6 +24,7 @@ pipeline {
 
                 echo 'building'
                 sh 'docker build -t test:latest .'
+		sh 'trivy image --severity HIGH test:latest'
                 sh 'docker run --rm -d -p 8000:8000 test'
 
             }
