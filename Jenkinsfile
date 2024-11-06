@@ -36,7 +36,7 @@ pipeline {
                 echo 'testing'
                 sh 'sleep 5'
                 sh 'curl -d "num1=8&num2=12" -X POST http://localhost:8000/add'
-          	//sh 'docker stop $(docker ps -q --filter ancestor=test)' 
+          	sh 'docker stop $(docker ps -q --filter ancestor=test)' 
                 
             }
         }
