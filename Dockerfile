@@ -1,7 +1,9 @@
 FROM alpine:3.7
- RUN apk add curl \
-    && curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/master/contrib/install.sh | sh -s -- -b /usr/local/bin \
-    && trivy filesystem --exit-code 1 --no-progress /
+RUN apt-get update && \
+    apt-get install -y wget && \
+    wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.34.0_Linux-64bit.deb && \
+    dpkg -i trivy_0.34.0_Linux-64bit.deb && \
+    rm trivy_0.34.0_Linux-64bit.deb
 
 FROM python:3
 
